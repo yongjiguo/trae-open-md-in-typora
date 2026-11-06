@@ -1,0 +1,83 @@
+{
+  "name": "trae-open-in-typora",
+  "displayName": "用 Typora 打开 (Trae)",
+  "description": "在 Trae 中右键 Markdown 文件，直接用 Typora 打开。",
+  "version": "0.0.3",
+  "publisher": "yongjiguo",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "typora",
+    "markdown",
+    "md",
+    "open-in",
+    "trae"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yongjiguo/trae-open-in-typora.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yongjiguo/trae-open-in-typora/issues"
+  },
+  "homepage": "https://github.com/yongjiguo/trae-open-in-typora#readme",
+  "icon": "icon.png",
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "traeOpenInTypora.openInTypora",
+        "title": "用 Typora 打开",
+        "category": "Typora"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "traeOpenInTypora.openInTypora",
+          "when": "resourceScheme == file && (resourceExtname == .md || resourceExtname == .markdown)",
+          "group": "navigation@1"
+        }
+      ],
+      "editor/title": [
+        {
+          "command": "traeOpenInTypora.openInTypora",
+          "when": "resourceScheme == file && (resourceExtname == .md || resourceExtname == .markdown)",
+          "group": "navigation@1"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "traeOpenInTypora.openInTypora",
+          "when": "resourceScheme == file && (resourceExtname == .md || resourceExtname == .markdown)",
+          "group": "navigation@1"
+        }
+      ],
+      "editor/title/context": [
+        {
+          "command": "traeOpenInTypora.openInTypora",
+          "when": "resourceScheme == file && (resourceExtname == .md || resourceExtname == .markdown)",
+          "group": "2_files@1"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "package": "mkdir -p dist && vsce package --no-dependencies --allow-star-activation --out dist/trae-open-in-typora-$(node -p \"require('./package.json').version\").vsix",
+    "lint": "node --check extension.js",
+    "vscode:prepublish": "npm run lint"
+  },
+  "author": "",
+  "type": "commonjs",
+  "devDependencies": {
+    "@vscode/vsce": "^4.1.0"
+  }
+}

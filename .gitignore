@@ -1,0 +1,16 @@
+# 依赖与构建产物
+node_modules/
+dist/
+*.vsix
+
+# 日志与缓存
+*.log
+npm-debug.log*
+.npm/
+
+# 编辑器与系统文件
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
