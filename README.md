@@ -1,6 +1,8 @@
 # 用 Typora 打开 (Trae)
 
-在 Trae 中右键 Markdown 文件，用 [Typora](https://typora.io/) 打开它。
+在 Trae 中右键 Markdown 文件即可用 [Typora](https://typora.io/) 打开，支持资源管理器、编辑器标签页、标题栏与编辑器内右键菜单。不联网、不收集数据，开箱即用。
+
+Right-click a Markdown file in Trae to open it in [Typora](https://typora.io/). Works in the Explorer, on editor tabs, in the title bar and inside the editor. No network calls, no data collection.
 
 ![icon](icon.png)
 
@@ -20,8 +22,8 @@
 ### 从源码安装
 
 ```bash
-git clone https://github.com/yongjiguo/trae-open-in-typora.git
-cd trae-open-in-typora
+git clone https://github.com/yongjiguo/trae-open-md-in-typora.git
+cd trae-open-md-in-typora
 npm install
 npm run package
 ```
@@ -29,14 +31,14 @@ npm run package
 产物在 `dist/` 目录下（`*.vsix`），然后安装：
 
 ```bash
-trae --install-extension dist/trae-open-in-typora-0.0.3.vsix
+trae --install-extension dist/trae-open-md-in-typora-0.0.3.vsix
 ```
 
 如果 `trae` 不在 PATH 中，可用完整路径：
 
 ```bash
 /Applications/Trae.app/Contents/Resources/app/bin/trae \
-  --install-extension dist/trae-open-in-typora-0.0.3.vsix
+  --install-extension dist/trae-open-md-in-typora-0.0.3.vsix
 ```
 
 安装后重载 Trae 窗口（命令面板执行 `Developer: Reload Window`）即可生效。
@@ -44,7 +46,7 @@ trae --install-extension dist/trae-open-in-typora-0.0.3.vsix
 ### 卸载
 
 ```bash
-trae --uninstall-extension yongjiguo.trae-open-in-typora
+trae --uninstall-extension yongjiguo.trae-open-md-in-typora
 ```
 
 ## 使用前提

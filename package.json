@@ -1,5 +1,5 @@
 {
-  "name": "trae-open-in-typora",
+  "name": "trae-open-md-in-typora",
   "displayName": "用 Typora 打开 (Trae)",
   "description": "在 Trae 中右键 Markdown 文件，直接用 Typora 打开。",
   "version": "0.0.3",
@@ -20,12 +20,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yongjiguo/trae-open-in-typora.git"
+    "url": "git+https://github.com/yongjiguo/trae-open-md-in-typora.git"
   },
   "bugs": {
-    "url": "https://github.com/yongjiguo/trae-open-in-typora/issues"
+    "url": "https://github.com/yongjiguo/trae-open-md-in-typora/issues"
   },
-  "homepage": "https://github.com/yongjiguo/trae-open-in-typora#readme",
+  "homepage": "https://github.com/yongjiguo/trae-open-md-in-typora#readme",
   "icon": "icon.png",
   "activationEvents": [
     "*"
@@ -71,7 +71,7 @@
     }
   },
   "scripts": {
-    "package": "mkdir -p dist && vsce package --no-dependencies --allow-star-activation --out dist/trae-open-in-typora-$(node -p \"require('./package.json').version\").vsix",
+    "package": "mkdir -p dist && vsce package --no-dependencies --allow-star-activation --out dist/trae-open-md-in-typora-$(node -p \"require('./package.json').version\").vsix",
     "lint": "node --check extension.js",
     "vscode:prepublish": "npm run lint"
   },

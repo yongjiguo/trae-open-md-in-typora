@@ -33,7 +33,7 @@ jobs:
       - name: 校验产物
         run: |
           ls -l dist/*.vsix
-          test -f dist/trae-open-in-typora-*.vsix
+          test -f dist/trae-open-md-in-typora-*.vsix
 
   security-scan:
     name: 依赖安全扫描
