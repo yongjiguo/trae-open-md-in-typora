@@ -1,8 +1,8 @@
-# 用 Typora 打开 (Trae)
+# 用 Typora 打开 (Trae Code/IDE)
 
-在 Trae 中右键 Markdown 文件即可用 [Typora](https://typora.io/) 打开，支持资源管理器、编辑器标签页、标题栏与编辑器内右键菜单。不联网、不收集数据，开箱即用。
+在 Trae Code/IDE 中右键 Markdown 文件即可用 [Typora](https://typora.io/) 打开，支持资源管理器、编辑器标签页、标题栏与编辑器内右键菜单。不联网、不收集数据，开箱即用。
 
-Right-click a Markdown file in Trae to open it in [Typora](https://typora.io/). Works in the Explorer, on editor tabs, in the title bar and inside the editor. No network calls, no data collection.
+Right-click a Markdown file in Trae Code/IDE to open it in [Typora](https://typora.io/). Works in the Explorer, on editor tabs, in the title bar and inside the editor. No network calls, no data collection.
 
 ![icon](icon.png)
 
@@ -41,7 +41,7 @@ trae --install-extension dist/trae-open-md-in-typora-0.0.3.vsix
   --install-extension dist/trae-open-md-in-typora-0.0.3.vsix
 ```
 
-安装后重载 Trae 窗口（命令面板执行 `Developer: Reload Window`）即可生效。
+安装后重载 Trae Code/IDE 窗口（命令面板执行 `Developer: Reload Window`）即可生效。
 
 ### 卸载
 
@@ -74,11 +74,11 @@ trae --uninstall-extension yongjiguo.trae-open-md-in-typora
 
 **资源管理器右键菜单需在 IDE 模式下使用。**
 
-Trae 的资源管理器右键菜单 ID 是动态选择的：
+Trae Code/IDE 的资源管理器右键菜单 ID 是动态选择的：
 
 ```js
 menuId: soloModeManagerService.isSoloLiteMode
-    ? MenuId.ExplorerContextSoloLite   // SOLO 模式：Trae 私有菜单
+    ? MenuId.ExplorerContextSoloLite   // SOLO 模式：Trae Code/IDE 私有菜单
     : MenuId.ExplorerContext,          // IDE 模式：标准菜单
 ```
 
