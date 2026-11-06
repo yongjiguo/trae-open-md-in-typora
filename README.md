@@ -51,6 +51,23 @@ trae --uninstall-extension yongjiguo.trae-open-in-typora
 
 需要本机已安装 Typora。未安装时菜单项会提示启动失败。
 
+## 平台支持
+
+| 平台 | 状态 | 说明 |
+|---|---|---|
+| macOS | ✅ 已验证 | 通过 LaunchServices 按应用名定位，不依赖 PATH |
+| Windows | ⚠️ 支持有限 | 见下方说明 |
+| Linux | ⚠️ 未验证 | 依赖 `typora` 在 PATH 中 |
+
+**Windows 支持有限。** 扩展会依次尝试以下方式定位 Typora：
+
+1. 常见安装位置（`C:\Program Files\Typora\Typora.exe` 等）
+2. 系统 `PATH` 中的 `typora.exe`
+
+若 Typora 安装在自定义位置且未加入 `PATH`，扩展会提示「未找到 Typora」。
+**如需在 Windows 上使用自定义路径，可自行在 Code agent 中实现**，
+或参考 [extension.js](extension.js) 中的 `resolveTyporaExecutable()` 扩展候选路径。
+
 ## 已知限制
 
 **资源管理器右键菜单需在 IDE 模式下使用。**
@@ -77,10 +94,13 @@ menuId: soloModeManagerService.isSoloLiteMode
 | 平台 | 命令 |
 |---|---|
 | macOS | `open -a Typora <file>` |
-| Windows | `cmd /c start "" typora <file>` |
+| Windows | `Typora.exe <file>`（直接调用；未找到时回退 `cmd /c start "" typora <file>`） |
 | Linux | `typora <file>` |
 
 文件路径始终作为独立参数传递（不拼接进 shell 字符串），因此不存在命令注入风险。
+
+Windows 下直接调用 `Typora.exe` 时会设置 `windowsHide: true`，避免每次右键都闪出
+一个 cmd 黑窗。命令面板与编辑器内右键菜单同样可用。
 
 扩展不联网、不收集任何数据，仅在本地启动 Typora 进程。详见 [SECURITY.md](SECURITY.md)。
 

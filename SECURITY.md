@@ -37,7 +37,12 @@ This extension is intentionally minimal, which bounds its attack surface:
   configuration surface.
 
 The one thing to be aware of: the extension passes a file path to
-`open -a Typora` (macOS), `cmd /c start` (Windows), or `typora` (Linux).
+`open -a Typora` (macOS), `Typora.exe` (Windows), or `typora` (Linux).
 The path always originates from the editor's own file selection and is passed
 as a separate argument (not interpolated into a shell string), so it cannot be
 used for command injection.
+
+On Windows the extension locates `Typora.exe` by checking well-known install
+locations and then the system `PATH`. It reads the filesystem only to test for
+the existence of that single executable — it never enumerates or reads file
+contents.
